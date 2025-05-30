@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>技术专长 - Peijun Mr Dai | 嵌入式系统专家</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        /* 技术栈页面特有样式 */
+        .services {
+            padding: 100px 0;
+            background-color: #f5f7fa;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+        }
+        
+        .section-title p {
+            color: var(--text-light);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .service-card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-top: 3px solid var(--primary-color);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            border-top-color: var(--accent-color);
+        }
+        
+        .service-icon {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+        
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--secondary-color);
+        }
+        
+        .service-card p {
+            color: var(--text-light);
+            font-size: 15px;
+        }
+
+        .chip {
+            display: inline-block;
+            background-color: var(--light-color);
+            padding: 4px 12px;
+            border-radius: 20px;
+            margin: 5px;
+            font-size: 13px;
+            color: var(--secondary-color);
+            font-family: 'Roboto Mono', monospace;
+        }
+
+        .chip.primary {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .chip.accent {
+            background-color: var(--accent-color);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <div class="container">
+            <nav>
+                <a href="index.html" class="logo">Peijun Mr Dai<span>.</span></a>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="about.html">关于我</a></li>
+                    <li><a href="skills.html">技术栈</a></li>
+                    <li><a href="portfolio.html">项目</a></li>
+                    <li><a href="experience.html">经历</a></li>
+                    <li><a href="contact.html">联系</a></li>
+                </ul>
+                <div class="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 技术栈 -->
+    <section class="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>技术专长</h2>
+                <p>我在嵌入式系统和物联网领域的核心技术与能力</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-microchip"></i>
+                    </div>
+                    <h3>嵌入式开发</h3>
+                    <p>精通ARM Cortex-M/A系列架构，熟悉STM32/NXP/ESP32等平台，具备从寄存器级开发到HAL库应用的完整经验。</p>
+                    <div style="margin-top: 20px;">
+                        <span class="chip">ARM架构</span>
+                        <span class="chip">STM32</span>
+                        <span class="chip">ESP32</span>
+                        <span class="chip">RT-Thread</span>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>实时系统</h3>
+                    <p>深入理解FreeRTOS、Zephyr等实时操作系统内核原理，能够进行任务调度优化和内存管理调优。</p>
+                    <div style="margin-top: 20px;">
+                        <span class="chip">FreeRTOS</span>
+                        <span class="chip">Zephyr</span>
+                        <span class="chip">RTOS优化</span>
+                        <span class="chip">实时性分析</span>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-cloud"></i>
+                    </div>
+                    <h3>物联网架构</h3>
+                    <p>设计并实现端到端IoT解决方案，包括设备端固件、网关设计、云平台集成和数据安全。</p>
+                    <div style="margin-top: 20px;">
+                        <span class="chip">MQTT</span>
+                        <span class="chip">CoAP</span>
+                        <span class="chip">LoRaWAN</span>
+                        <span class="chip">NB-IoT</span>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-battery-three-quarters"></i>
+                    </div>
+                    <h3>低功耗设计</h3>
+                    <p>擅长超低功耗嵌入式系统设计，优化电源管理，延长电池寿命，最低可实现μA级待机电流。</p>
+                    <div style="margin-top: 20px;">
+                        <span class="chip">电源管理</span>
+                        <span class="chip">睡眠模式</span>
+                        <span class="chip">能耗分析</span>
+                        <span class="chip">电池优化</span>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-project-diagram"></i>
+                    </div>
+                    <h3>驱动开发</h3>
+                    <p>开发各类外设驱动，包括传感器、无线模块、显示屏等，精通SPI/I2C/UART等通信协议。</p>
+                    <div style="margin-top: 20px;">
+                        <span class="chip">设备驱动</span>
+                        <span class="chip">总线协议</span>
+                        <span class="chip">DMA优化</span>
+                        <span class="chip">中断处理</span>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>系统安全</h3>
+                    <p>实现嵌入式系统安全方案，包括安全启动、固件加密、安全OTA更新和数据保护。</p>
+                    <div style="margin-top: 20px;">
+                        <span class="chip">安全启动</span>
+                        <span class="chip">加密算法</span>
+                        <span class="chip">TrustZone</span>
+                        <span class="chip">安全OTA</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <a href="index.html" class="footer-logo">Peijun Mr Dai<span>.</span></a>
+                <ul class="footer-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="about.html">关于</a></li>
+                    <li><a href="skills.html">技术栈</a></li>
+                    <li><a href="portfolio.html">项目</a></li>
+                    <li><a href="experience.html">经历</a></li>
+                    <li><a href="contact.html">联系</a></li>
+                </ul>
+                <p class="copyright">© 2023 Peijun Mr Dai - 嵌入式系统专家. 保留所有权利.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

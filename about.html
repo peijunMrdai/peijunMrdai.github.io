@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>关于我 - Peijun Mr Dai | 嵌入式系统专家</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        /* 关于我页面特有样式 */
+        .about {
+            padding: 100px 0;
+            background-color: white;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 3px;
+            background-color: var(--accent-color);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .section-title p {
+            color: var(--text-light);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+        
+        .about-img {
+            flex: 1;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .about-img img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--secondary-color);
+        }
+        
+        .about-text p {
+            margin-bottom: 20px;
+            color: var(--text-light);
+        }
+        
+        .skills {
+            margin-top: 30px;
+        }
+        
+        .skill-item {
+            margin-bottom: 20px;
+        }
+        
+        .skill-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+            font-size: 14px;
+        }
+        
+        .skill-bar {
+            height: 8px;
+            background-color: #eee;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        
+        .skill-progress {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+            border-radius: 4px;
+        }
+
+        @media (max-width: 992px) {
+            .about-content {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <div class="container">
+            <nav>
+                <a href="index.html" class="logo">Peijun Mr Dai<span>.</span></a>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="about.html">关于我</a></li>
+                    <li><a href="skills.html">技术栈</a></li>
+                    <li><a href="portfolio.html">项目</a></li>
+                    <li><a href="experience.html">经历</a></li>
+                    <li><a href="contact.html">联系</a></li>
+                </ul>
+                <div class="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 关于我 -->
+    <section class="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>关于我</h2>
+                <p>嵌入式系统与物联网领域的资深专家，致力于构建高效可靠的智能硬件解决方案</p>
+            </div>
+            <div class="about-content">
+                <div class="about-img">
+                    <img src="assets/images/profile.jpg" alt="Peijun Mr Dai">
+                </div>
+                <div class="about-text">
+                    <h3>嵌入式系统与物联网专家</h3>
+                    <p>我是一名专注于嵌入式系统和物联网解决方案的资深工程师，拥有10年行业经验。我的专长包括实时操作系统(RTOS)开发、低功耗设计、硬件/软件协同优化以及物联网系统架构。</p>
+                    <p>曾主导多个工业级嵌入式项目，从8位MCU到多核ARM处理器，从裸机开发到Linux嵌入式系统，积累了丰富的跨平台开发经验。特别擅长解决复杂系统中的性能瓶颈和稳定性问题。</p>
+                    <div class="skills">
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span>嵌入式C/C++</span>
+                                <span>98%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 98%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span>RTOS(FreeRTOS/Zephyr)</span>
+                                <span>95%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 95%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span>ARM Cortex架构</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 90%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span>物联网协议(MQTT/CoAP)</span>
+                                <span>88%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 88%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <a href="index.html" class="footer-logo">Peijun Mr Dai<span>.</span></a>
+                <ul class="footer-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="about.html">关于</a></li>
+                    <li><a href="skills.html">技术栈</a></li>
+                    <li><a href="portfolio.html">项目</a></li>
+                    <li><a href="experience.html">经历</a></li>
+                    <li><a href="contact.html">联系</a></li>
+                </ul>
+                <p class="copyright">© 2023 Peijun Mr Dai - 嵌入式系统专家. 保留所有权利.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

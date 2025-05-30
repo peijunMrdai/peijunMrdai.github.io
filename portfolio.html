@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>项目展示 - Peijun Mr Dai | 嵌入式系统专家</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        /* 项目展示页面特有样式 */
+        .portfolio {
+            padding: 100px 0;
+            background-color: white;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+        }
+        
+        .section-title p {
+            color: var(--text-light);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .portfolio-item {
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .portfolio-img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .portfolio-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(46, 125, 50, 0.9);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .portfolio-item:hover .portfolio-overlay {
+            opacity: 1;
+        }
+        
+        .portfolio-overlay h3 {
+            color: white;
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .portfolio-overlay p {
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+        
+        .portfolio-link {
+            color: white;
+            font-size: 1.2rem;
+            margin: 0 10px;
+            transition: transform 0.3s;
+            background-color: rgba(0, 0, 0, 0.2);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .portfolio-link:hover {
+            transform: translateY(-3px);
+            background-color: var(--accent-color);
+        }
+
+        .portfolio-tech {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 10px;
+            background: rgba(0, 0, 0, 0.7);
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .portfolio-tech .chip {
+            margin: 3px;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <div class="container">
+            <nav>
+                <a href="index.html" class="logo">Peijun Mr Dai<span>.</span></a>
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="about.html">关于我</a></li>
+                    <li><a href="skills.html">技术栈</a></li>
+                    <li><a href="portfolio.html">项目</a></li>
+                    <li><a href="experience.html">经历</a></li>
+                    <li><a href="contact.html">联系</a></li>
+                </ul>
+                <div class="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 项目展示 -->
+    <section class="portfolio" id="portfolio">
+        <div class="container">
+            <div class="section-title">
+                <h2>精选项目</h2>
+                <p>以下是我主导或参与的代表性嵌入式项目</p>
+            </div>
+            <div class="portfolio-grid">
+                <div class="portfolio-item">
+                    <img src="assets/images/project1.jpg?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="工业物联网网关" class="portfolio-img">
+                    <div class="portfolio-overlay">
+                        <h3>工业物联网网关</h3>
+                        <p>基于STM32H7和Linux双核架构的工业级物联网网关，支持Modbus、CAN总线等多协议转换，实现边缘计算功能。</p>
+                        <div>
+                            <a href="#" class="portfolio-link"><i class="fas fa-link"></i></a>
+                            <a href="#" class="portfolio-link"><i class="fas fa-search"></i></a>
+                        </div>
+                    </div>
+                    <div class="portfolio-tech">
+                        <span class="chip">STM32H7</span>
+                        <span class="chip">Linux</span>
+                        <span class="chip">Modbus</span>
+                        <span class="chip">边缘计算</span>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="assets/images/project2.jpg?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="智能农业监测系统" class="portfolio-img">
+                    <div class="portfolio-overlay">
+                        <h3>智能农业监测系统</h3>
+                        <p>基于LoRaWAN的低功耗农业环境监测系统，实现土壤墒情、气象数据采集和远程监控，电池寿命达5年以上。</p>
+                        <div>
+                            <a href="#" class="portfolio-link"><i class="fas fa-link"></i></a>
+                            <a href="#" class="portfolio-link"><i class="fas fa-search"></i></a>
+                        </div>
+                    </div>
+                    <div class="portfolio-tech">
+                        <span class="chip">LoRaWAN</span>
+                        <span class="chip">低功耗</span>
+                        <span class="chip">STM32L4</span>
+                        <span class="chip">传感器网络</span>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="assets/images/project3.jpg?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="医疗设备控制器" class="portfolio-img">
+                    <div class="portfolio-overlay">
+                        <h3>医疗设备控制器</h3>
+                        <p>符合医疗级标准的嵌入式控制器，通过IEC 60601认证，实现精密运动控制和实时数据采集。</p>
+                        <div>
+                            <a href="#" class="portfolio-link"><i class="fas fa-link"></i></a>
+                            <a href="#" class="portfolio-link"><i class="fas fa-search"></i></a>
+                        </div>
+                    </div>
+                    <div class="portfolio-tech">
+                        <span class="chip">医疗设备</span>
+                        <span class="chip">IEC 60601</span>
+                        <span class="chip">实时控制</span>
+                        <span class="chip">安全认证</span>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="assets/images/project4.jpg?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="汽车电子控制单元" class="portfolio-img">
+                    <div class="portfolio-overlay">
+                        <h3>汽车电子控制单元</h3>
+                        <p>基于AUTOSAR架构的汽车ECU开发，满足ISO 26262功能安全要求，实现车辆状态监控和控制。</p>
+                        <div>
+                            <a href="#" class="portfolio-link"><i class="fas fa-link"></i></a>
+                            <a href="#" class="portfolio-link"><i class="fas fa-search"></i></a>
+                        </div>
+                    </div>
+                    <div class="portfolio-tech">
+                        <span class="chip">AUTOSAR</span>
+                        <span class="chip">ISO 26262</span>
+                        <span class="chip">CAN总线</span>
+                        <span class="chip">汽车电子</span>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="assets/images/project5.jpg?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="智能家居中枢" class="portfolio-img">
+                    <div class="portfolio-overlay">
+                        <h3>智能家居中枢</h3>
+                        <p>支持Zigbee、蓝牙Mesh和Wi-Fi的多协议智能家居网关，实现设备互联和语音控制集成。</p>
+                        <div>
+                            <a href="#" class="portfolio-link"><i class="fas fa-link"></i></a>
+                            <a href="#" class="portfolio-link"><i class="fas fa-search"></i></a>
+                        </div>
+                    </div>
+                    <div class="portfolio-tech">
+                        <span class="chip">Zigbee</span>
+                        <span class="chip">蓝牙Mesh</span>
+                        <span class="chip">多协议</span>
+                        <span class="chip">语音控制</span>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="assets/images/project6.jpg?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="无人机飞控系统" class="portfolio-img">
+                    <div class="portfolio-overlay">
+                        <h3>无人机飞控系统</h3>
+                        <p>基于STM32F7的高性能飞控系统，实现精准姿态控制和自主导航，支持多种传感器融合。</p>
+                        <div>
+                            <a href="#" class="portfolio-link"><i class="fas fa-link"></i></a>
+                            <a href="#" class="portfolio-link"><i class="fas fa-search"></i></a>
+                        </div>
+                    </div>
+                    <div class="portfolio-tech">
+                        <span class="chip">飞控算法</span>
+                        <span class="chip">传感器融合</span>
+                        <span class="chip">PID控制</span>
+                        <span class="chip">自主导航</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <a href="index.html" class="footer-logo">Peijun Mr Dai<span>.</span></a>
+                <ul class="footer-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="about.html">关于</a></li>
+                    <li><a href="skills.html">技术栈</a></li>
+                    <li><a href="portfolio.html">项目</a></li>
+                    <li><a href="experience.html">经历</a></li>
+                    <li><a href="contact.html">联系</a></li>
+                </ul>
+                <p class="copyright">© 2023 Peijun Mr Dai - 嵌入式系统专家. 保留所有权利.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
