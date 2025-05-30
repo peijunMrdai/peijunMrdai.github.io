@@ -3,30 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>张明远 - 资深全栈工程师 & 创新者</title>
+    <title>Peijun Mr Dai - 嵌入式系统专家 | 物联网架构师 | 实时系统开发者</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #3498db;
-            --secondary-color: #2c3e50;
-            --accent-color: #e74c3c;
-            --light-color: #ecf0f1;
-            --dark-color: #2c3e50;
-            --text-color: #333;
-            --text-light: #7f8c8d;
+            --primary-color: #2e7d32;  /* 科技绿 */
+            --secondary-color: #263238; /* 深灰蓝 */
+            --accent-color: #ff6d00;   /* 橙色强调 */
+            --light-color: #eceff1;
+            --dark-color: #102027;
+            --text-color: #37474f;
+            --text-light: #607d8b;
+            --code-bg: #f5f5f5;
         }
         
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
         
         body {
-            background-color: #f9f9f9;
+            background-color: #fafafa;
             color: var(--text-color);
             line-height: 1.6;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Roboto Mono', monospace;
+            font-weight: 500;
+        }
+
+        .monospace {
+            font-family: 'Roboto Mono', monospace;
         }
         
         .container {
@@ -37,7 +48,7 @@
         
         /* 导航栏 */
         header {
-            background-color: white;
+            background-color: var(--secondary-color);
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             position: fixed;
             width: 100%;
@@ -55,8 +66,13 @@
         .logo {
             font-size: 24px;
             font-weight: 700;
-            color: var(--primary-color);
+            color: var(--light-color);
             text-decoration: none;
+            font-family: 'Roboto Mono', monospace;
+        }
+        
+        .logo span {
+            color: var(--accent-color);
         }
         
         .nav-links {
@@ -70,19 +86,21 @@
         
         .nav-links a {
             text-decoration: none;
-            color: var(--dark-color);
+            color: var(--light-color);
             font-weight: 500;
             transition: color 0.3s;
+            font-size: 15px;
         }
         
         .nav-links a:hover {
-            color: var(--primary-color);
+            color: var(--accent-color);
         }
         
         .menu-toggle {
             display: none;
             cursor: pointer;
             font-size: 24px;
+            color: white;
         }
         
         /* 英雄区域 */
@@ -90,7 +108,10 @@
             height: 100vh;
             display: flex;
             align-items: center;
-            background: linear-gradient(135deg, rgba(52, 152, 219, 0.9) 0%, rgba(41, 128, 185, 0.9) 100%);
+            background: linear-gradient(rgba(38, 50, 56, 0.9), rgba(38, 50, 56, 0.9)), 
+                        url('https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
             color: white;
             text-align: center;
             padding-top: 80px;
@@ -105,12 +126,16 @@
             font-size: 3.5rem;
             margin-bottom: 20px;
             font-weight: 700;
+            line-height: 1.2;
         }
         
         .hero p {
             font-size: 1.2rem;
             margin-bottom: 30px;
             opacity: 0.9;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
         }
         
         .hero-btns {
@@ -122,32 +147,89 @@
         .btn {
             display: inline-block;
             padding: 12px 30px;
-            border-radius: 50px;
+            border-radius: 4px;
             text-decoration: none;
             font-weight: 600;
             transition: all 0.3s;
+            font-family: 'Roboto Mono', monospace;
+            font-size: 14px;
+            letter-spacing: 1px;
         }
         
         .btn-primary {
-            background-color: white;
-            color: var(--primary-color);
+            background-color: var(--accent-color);
+            color: white;
         }
         
         .btn-primary:hover {
             transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            background-color: #ff8500;
         }
         
         .btn-outline {
-            border: 2px solid white;
-            color: white;
+            border: 2px solid var(--accent-color);
+            color: var(--accent-color);
         }
         
         .btn-outline:hover {
-            background-color: white;
-            color: var(--primary-color);
+            background-color: var(--accent-color);
+            color: white;
             transform: translateY(-3px);
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .terminal {
+            background-color: var(--dark-color);
+            border-radius: 8px;
+            padding: 20px;
+            margin: 40px auto;
+            max-width: 700px;
+            text-align: left;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            font-family: 'Roboto Mono', monospace;
+        }
+
+        .terminal-header {
+            display: flex;
+            margin-bottom: 15px;
+        }
+
+        .terminal-btn {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin-right: 6px;
+        }
+
+        .terminal-btn.red {
+            background-color: #ff5f56;
+        }
+
+        .terminal-btn.yellow {
+            background-color: #ffbd2e;
+        }
+
+        .terminal-btn.green {
+            background-color: #27c93f;
+        }
+
+        .terminal-body {
+            color: #f0f0f0;
+            line-height: 1.5;
+        }
+
+        .terminal-prompt {
+            color: var(--accent-color);
+        }
+
+        .terminal-command {
+            color: #4caf50;
+        }
+
+        .terminal-output {
+            opacity: 0.8;
+            margin-top: 10px;
         }
         
         /* 关于我 */
@@ -163,8 +245,21 @@
         
         .section-title h2 {
             font-size: 2.5rem;
-            color: var(--dark-color);
+            color: var(--secondary-color);
             margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 3px;
+            background-color: var(--accent-color);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
         }
         
         .section-title p {
@@ -181,7 +276,7 @@
         
         .about-img {
             flex: 1;
-            border-radius: 10px;
+            border-radius: 8px;
             overflow: hidden;
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
         }
@@ -219,19 +314,41 @@
             display: flex;
             justify-content: space-between;
             margin-bottom: 5px;
+            font-size: 14px;
         }
         
         .skill-bar {
-            height: 10px;
+            height: 8px;
             background-color: #eee;
-            border-radius: 5px;
+            border-radius: 4px;
             overflow: hidden;
         }
         
         .skill-progress {
             height: 100%;
             background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
-            border-radius: 5px;
+            border-radius: 4px;
+        }
+
+        .chip {
+            display: inline-block;
+            background-color: var(--light-color);
+            padding: 4px 12px;
+            border-radius: 20px;
+            margin: 5px;
+            font-size: 13px;
+            color: var(--secondary-color);
+            font-family: 'Roboto Mono', monospace;
+        }
+
+        .chip.primary {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .chip.accent {
+            background-color: var(--accent-color);
+            color: white;
         }
         
         /* 服务/专长 */
@@ -249,16 +366,18 @@
         
         .service-card {
             background-color: white;
-            border-radius: 10px;
+            border-radius: 8px;
             padding: 40px 30px;
             text-align: center;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
             transition: transform 0.3s, box-shadow 0.3s;
+            border-top: 3px solid var(--primary-color);
         }
         
         .service-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            border-top-color: var(--accent-color);
         }
         
         .service-icon {
@@ -275,8 +394,9 @@
         
         .service-card p {
             color: var(--text-light);
+            font-size: 15px;
         }
-        
+
         /* 项目展示 */
         .portfolio {
             padding: 100px 0;
@@ -292,9 +412,14 @@
         
         .portfolio-item {
             position: relative;
-            border-radius: 10px;
+            border-radius: 8px;
             overflow: hidden;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-5px);
         }
         
         .portfolio-img {
@@ -310,13 +435,15 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(52, 152, 219, 0.9);
+            background: rgba(46, 125, 50, 0.9);
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             opacity: 0;
             transition: opacity 0.3s;
+            padding: 20px;
+            text-align: center;
         }
         
         .portfolio-item:hover .portfolio-overlay {
@@ -331,9 +458,8 @@
         
         .portfolio-overlay p {
             color: rgba(255, 255, 255, 0.8);
-            text-align: center;
-            padding: 0 20px;
             margin-bottom: 20px;
+            font-size: 14px;
         }
         
         .portfolio-link {
@@ -341,10 +467,35 @@
             font-size: 1.2rem;
             margin: 0 10px;
             transition: transform 0.3s;
+            background-color: rgba(0, 0, 0, 0.2);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         
         .portfolio-link:hover {
             transform: translateY(-3px);
+            background-color: var(--accent-color);
+        }
+
+        .portfolio-tech {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 10px;
+            background: rgba(0, 0, 0, 0.7);
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .portfolio-tech .chip {
+            margin: 3px;
+            font-size: 12px;
         }
         
         /* 时间线/经历 */
@@ -387,8 +538,27 @@
         .timeline-content {
             background-color: white;
             padding: 30px;
-            border-radius: 10px;
+            border-radius: 8px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            position: relative;
+        }
+
+        .timeline-content:before {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: white;
+            top: 20px;
+            transform: rotate(45deg);
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content:before {
+            right: -10px;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content:before {
+            left: -10px;
         }
         
         .timeline-date {
@@ -396,6 +566,10 @@
             top: 0;
             color: var(--primary-color);
             font-weight: 600;
+            background-color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
         }
         
         .timeline-item:nth-child(odd) .timeline-date {
@@ -418,6 +592,7 @@
             border-radius: 50%;
             background-color: var(--primary-color);
             border: 4px solid white;
+            box-shadow: 0 0 0 3px var(--primary-color);
         }
         
         .timeline-content h3 {
@@ -430,10 +605,18 @@
             font-size: 1rem;
             margin-bottom: 10px;
             color: var(--text-light);
+            font-weight: 400;
         }
         
         .timeline-content p {
             color: var(--text-light);
+            font-size: 15px;
+        }
+
+        .timeline-tech {
+            margin-top: 15px;
+            display: flex;
+            flex-wrap: wrap;
         }
         
         /* 联系我 */
@@ -452,7 +635,7 @@
         .contact-info {
             background-color: #f5f7fa;
             padding: 40px 30px;
-            border-radius: 10px;
+            border-radius: 8px;
         }
         
         .contact-info h3 {
@@ -520,7 +703,7 @@
         .contact-form {
             background-color: #f5f7fa;
             padding: 40px 30px;
-            border-radius: 10px;
+            border-radius: 8px;
         }
         
         .form-group {
@@ -531,9 +714,10 @@
             width: 100%;
             padding: 12px 15px;
             border: 1px solid #ddd;
-            border-radius: 5px;
+            border-radius: 4px;
             font-size: 1rem;
             transition: border-color 0.3s;
+            font-family: 'Roboto', sans-serif;
         }
         
         .form-control:focus {
@@ -551,10 +735,12 @@
             color: white;
             border: none;
             padding: 12px 30px;
-            border-radius: 50px;
+            border-radius: 4px;
             cursor: pointer;
             font-weight: 600;
             transition: background-color 0.3s;
+            font-family: 'Roboto Mono', monospace;
+            letter-spacing: 1px;
         }
         
         .submit-btn:hover {
@@ -563,7 +749,7 @@
         
         /* 页脚 */
         footer {
-            background-color: var(--dark-color);
+            background-color: var(--secondary-color);
             color: white;
             padding: 50px 0 20px;
             text-align: center;
@@ -579,6 +765,11 @@
             font-weight: 700;
             margin-bottom: 20px;
             color: white;
+            font-family: 'Roboto Mono', monospace;
+        }
+
+        .footer-logo span {
+            color: var(--accent-color);
         }
         
         .footer-links {
@@ -586,6 +777,7 @@
             justify-content: center;
             list-style: none;
             margin: 20px 0;
+            flex-wrap: wrap;
         }
         
         .footer-links li {
@@ -596,10 +788,11 @@
             color: rgba(255, 255, 255, 0.7);
             text-decoration: none;
             transition: color 0.3s;
+            font-size: 14px;
         }
         
         .footer-links a:hover {
-            color: white;
+            color: var(--accent-color);
         }
         
         .copyright {
@@ -607,7 +800,7 @@
             color: rgba(255, 255, 255, 0.5);
             font-size: 0.9rem;
         }
-        
+
         /* 响应式设计 */
         @media (max-width: 992px) {
             .about-content {
@@ -635,6 +828,13 @@
                 transform: translateX(0);
                 top: -30px;
             }
+
+            .timeline-item:nth-child(odd) .timeline-content:before,
+            .timeline-item:nth-child(even) .timeline-content:before {
+                left: 20px;
+                top: -10px;
+                transform: rotate(135deg);
+            }
         }
         
         @media (max-width: 768px) {
@@ -657,7 +857,7 @@
                 left: -100%;
                 width: 100%;
                 height: calc(100vh - 80px);
-                background-color: white;
+                background-color: var(--secondary-color);
                 flex-direction: column;
                 align-items: center;
                 padding: 40px 0;
@@ -679,6 +879,10 @@
             .section-title h2 {
                 font-size: 2rem;
             }
+
+            .terminal {
+                display: none;
+            }
         }
     </style>
 </head>
@@ -687,11 +891,11 @@
     <header>
         <div class="container">
             <nav>
-                <a href="#" class="logo">张明远</a>
+                <a href="#" class="logo">Peijun Mr Dai<span>.</span></a>
                 <ul class="nav-links">
                     <li><a href="#home">首页</a></li>
                     <li><a href="#about">关于我</a></li>
-                    <li><a href="#services">专长</a></li>
+                    <li><a href="#skills">技术栈</a></li>
                     <li><a href="#portfolio">项目</a></li>
                     <li><a href="#timeline">经历</a></li>
                     <li><a href="#contact">联系</a></li>
@@ -707,10 +911,10 @@
     <section class="hero" id="home">
         <div class="container">
             <div class="hero-content">
-                <h1>张明远</h1>
-                <p>资深全栈工程师 | 技术创新者 | 数字化转型专家</p>
+                <h1>嵌入式系统专家 & IoT解决方案架构师</h1>
+                <p>10年嵌入式开发经验，专注于实时系统、低功耗设计和物联网解决方案</p>
                 <div class="hero-btns">
-                    <a href="#contact" class="btn btn-primary">联系我</a>
+                    <a href="#contact" class="btn btn-primary">联系合作</a>
                     <a href="#portfolio" class="btn btn-outline">查看项目</a>
                 </div>
             </div>
@@ -722,20 +926,29 @@
         <div class="container">
             <div class="section-title">
                 <h2>关于我</h2>
-                <p>10年技术行业经验，专注于创造高效、可扩展的数字解决方案</p>
+                <p>嵌入式系统与物联网领域的资深专家，致力于构建高效可靠的智能硬件解决方案</p>
             </div>
             <div class="about-content">
                 <div class="about-img">
-                    <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="张明远">
+                    <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Peijun Mr Dai">
                 </div>
                 <div class="about-text">
-                    <h3>资深技术专家</h3>
-                    <p>我是一名充满激情的全栈开发者和技术领导者，拥有10年在软件开发、系统架构和技术创新方面的经验。我致力于通过技术解决复杂问题，创造卓越的用户体验。</p>
-                    <p>我的专长包括云计算架构、微服务设计、前端工程和敏捷开发流程。我曾在多家科技公司担任技术负责人，成功交付了多个大型企业级应用。</p>
+                    <h3>嵌入式系统与物联网专家</h3>
+                    <p>我是一名专注于嵌入式系统和物联网解决方案的资深工程师，拥有10年行业经验。我的专长包括实时操作系统(RTOS)开发、低功耗设计、硬件/软件协同优化以及物联网系统架构。</p>
+                    <p>曾主导多个工业级嵌入式项目，从8位MCU到多核ARM处理器，从裸机开发到Linux嵌入式系统，积累了丰富的跨平台开发经验。特别擅长解决复杂系统中的性能瓶颈和稳定性问题。</p>
                     <div class="skills">
                         <div class="skill-item">
                             <div class="skill-info">
-                                <span>JavaScript/TypeScript</span>
+                                <span>嵌入式C/C++</span>
+                                <span>98%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 98%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span>RTOS(FreeRTOS/Zephyr)</span>
                                 <span>95%</span>
                             </div>
                             <div class="skill-bar">
@@ -744,7 +957,7 @@
                         </div>
                         <div class="skill-item">
                             <div class="skill-info">
-                                <span>React/Vue</span>
+                                <span>ARM Cortex架构</span>
                                 <span>90%</span>
                             </div>
                             <div class="skill-bar">
@@ -753,20 +966,11 @@
                         </div>
                         <div class="skill-item">
                             <div class="skill-info">
-                                <span>Node.js/Python</span>
-                                <span>85%</span>
+                                <span>物联网协议(MQTT/CoAP)</span>
+                                <span>88%</span>
                             </div>
                             <div class="skill-bar">
-                                <div class="skill-progress" style="width: 85%;"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-info">
-                                <span>AWS/阿里云</span>
-                                <span>80%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 80%;"></div>
+                                <div class="skill-progress" style="width: 88%;"></div>
                             </div>
                         </div>
                     </div>
@@ -775,55 +979,91 @@
         </div>
     </section>
 
-    <!-- 服务/专长 -->
-    <section class="services" id="services">
+    <!-- 技术栈 -->
+    <section class="services" id="skills">
         <div class="container">
             <div class="section-title">
-                <h2>我的专长</h2>
-                <p>我提供全方位的技术服务，从咨询到实施，助力企业数字化转型</p>
+                <h2>技术专长</h2>
+                <p>我在嵌入式系统和物联网领域的核心技术与能力</p>
             </div>
             <div class="services-grid">
                 <div class="service-card">
                     <div class="service-icon">
-                        <i class="fas fa-code"></i>
+                        <i class="fas fa-microchip"></i>
                     </div>
-                    <h3>全栈开发</h3>
-                    <p>从前端到后端，构建高性能、可扩展的Web应用和移动应用，使用最新技术栈如React、Vue、Node.js等。</p>
+                    <h3>嵌入式开发</h3>
+                    <p>精通ARM Cortex-M/A系列架构，熟悉STM32/NXP/ESP32等平台，具备从寄存器级开发到HAL库应用的完整经验。</p>
+                    <div style="margin-top: 20px;">
+                        <span class="chip">ARM架构</span>
+                        <span class="chip">STM32</span>
+                        <span class="chip">ESP32</span>
+                        <span class="chip">RT-Thread</span>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>实时系统</h3>
+                    <p>深入理解FreeRTOS、Zephyr等实时操作系统内核原理，能够进行任务调度优化和内存管理调优。</p>
+                    <div style="margin-top: 20px;">
+                        <span class="chip">FreeRTOS</span>
+                        <span class="chip">Zephyr</span>
+                        <span class="chip">RTOS优化</span>
+                        <span class="chip">实时性分析</span>
+                    </div>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">
                         <i class="fas fa-cloud"></i>
                     </div>
-                    <h3>云架构</h3>
-                    <p>设计并实施基于AWS、阿里云等平台的云原生架构，优化性能和成本，确保高可用性和安全性。</p>
+                    <h3>物联网架构</h3>
+                    <p>设计并实现端到端IoT解决方案，包括设备端固件、网关设计、云平台集成和数据安全。</p>
+                    <div style="margin-top: 20px;">
+                        <span class="chip">MQTT</span>
+                        <span class="chip">CoAP</span>
+                        <span class="chip">LoRaWAN</span>
+                        <span class="chip">NB-IoT</span>
+                    </div>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">
-                        <i class="fas fa-robot"></i>
+                        <i class="fas fa-battery-three-quarters"></i>
                     </div>
-                    <h3>AI集成</h3>
-                    <p>将机器学习和大语言模型集成到业务应用中，提升自动化水平和用户体验。</p>
+                    <h3>低功耗设计</h3>
+                    <p>擅长超低功耗嵌入式系统设计，优化电源管理，延长电池寿命，最低可实现μA级待机电流。</p>
+                    <div style="margin-top: 20px;">
+                        <span class="chip">电源管理</span>
+                        <span class="chip">睡眠模式</span>
+                        <span class="chip">能耗分析</span>
+                        <span class="chip">电池优化</span>
+                    </div>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">
-                        <i class="fas fa-chart-line"></i>
+                        <i class="fas fa-project-diagram"></i>
                     </div>
-                    <h3>技术咨询</h3>
-                    <p>为企业提供技术战略咨询，评估现有架构，规划技术路线图，助力业务增长。</p>
+                    <h3>驱动开发</h3>
+                    <p>开发各类外设驱动，包括传感器、无线模块、显示屏等，精通SPI/I2C/UART等通信协议。</p>
+                    <div style="margin-top: 20px;">
+                        <span class="chip">设备驱动</span>
+                        <span class="chip">总线协议</span>
+                        <span class="chip">DMA优化</span>
+                        <span class="chip">中断处理</span>
+                    </div>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">
-                        <i class="fas fa-users"></i>
+                        <i class="fas fa-shield-alt"></i>
                     </div>
-                    <h3>团队培训</h3>
-                    <p>为开发团队提供技术培训，提升团队技能水平，推广最佳实践和工程文化。</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-mobile-alt"></i>
+                    <h3>系统安全</h3>
+                    <p>实现嵌入式系统安全方案，包括安全启动、固件加密、安全OTA更新和数据保护。</p>
+                    <div style="margin-top: 20px;">
+                        <span class="chip">安全启动</span>
+                        <span class="chip">加密算法</span>
+                        <span class="chip">TrustZone</span>
+                        <span class="chip">安全OTA</span>
                     </div>
-                    <h3>移动开发</h3>
-                    <p>开发跨平台移动应用，使用React Native或Flutter，确保高性能和原生体验。</p>
                 </div>
             </div>
         </div>
@@ -834,73 +1074,109 @@
         <div class="container">
             <div class="section-title">
                 <h2>精选项目</h2>
-                <p>以下是我参与或主导的部分代表性项目</p>
+                <p>以下是我主导或参与的代表性嵌入式项目</p>
             </div>
             <div class="portfolio-grid">
                 <div class="portfolio-item">
-                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="金融科技平台" class="portfolio-img">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="工业物联网网关" class="portfolio-img">
                     <div class="portfolio-overlay">
-                        <h3>金融科技平台</h3>
-                        <p>为某大型金融机构开发的基于区块链的资产管理系统，实现资产数字化和智能合约自动化。</p>
+                        <h3>工业物联网网关</h3>
+                        <p>基于STM32H7和Linux双核架构的工业级物联网网关，支持Modbus、CAN总线等多协议转换，实现边缘计算功能。</p>
                         <div>
                             <a href="#" class="portfolio-link"><i class="fas fa-link"></i></a>
                             <a href="#" class="portfolio-link"><i class="fas fa-search"></i></a>
                         </div>
                     </div>
+                    <div class="portfolio-tech">
+                        <span class="chip">STM32H7</span>
+                        <span class="chip">Linux</span>
+                        <span class="chip">Modbus</span>
+                        <span class="chip">边缘计算</span>
+                    </div>
                 </div>
                 <div class="portfolio-item">
-                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="企业协作平台" class="portfolio-img">
+                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="智能农业监测系统" class="portfolio-img">
                     <div class="portfolio-overlay">
-                        <h3>企业协作平台</h3>
-                        <p>基于微服务架构的企业级协作工具，整合即时通讯、项目管理、文档协作等功能。</p>
+                        <h3>智能农业监测系统</h3>
+                        <p>基于LoRaWAN的低功耗农业环境监测系统，实现土壤墒情、气象数据采集和远程监控，电池寿命达5年以上。</p>
                         <div>
                             <a href="#" class="portfolio-link"><i class="fas fa-link"></i></a>
                             <a href="#" class="portfolio-link"><i class="fas fa-search"></i></a>
                         </div>
                     </div>
+                    <div class="portfolio-tech">
+                        <span class="chip">LoRaWAN</span>
+                        <span class="chip">低功耗</span>
+                        <span class="chip">STM32L4</span>
+                        <span class="chip">传感器网络</span>
+                    </div>
                 </div>
                 <div class="portfolio-item">
-                    <img src="https://images.unsplash.com/photo-1555774698-0b77e0d5fac6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="智能零售系统" class="portfolio-img">
+                    <img src="https://images.unsplash.com/photo-1555774698-0b77e0d5fac6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="医疗设备控制器" class="portfolio-img">
                     <div class="portfolio-overlay">
-                        <h3>智能零售系统</h3>
-                        <p>结合计算机视觉和数据分析的智能零售解决方案，提升线下零售体验和运营效率。</p>
+                        <h3>医疗设备控制器</h3>
+                        <p>符合医疗级标准的嵌入式控制器，通过IEC 60601认证，实现精密运动控制和实时数据采集。</p>
                         <div>
                             <a href="#" class="portfolio-link"><i class="fas fa-link"></i></a>
                             <a href="#" class="portfolio-link"><i class="fas fa-search"></i></a>
                         </div>
                     </div>
+                    <div class="portfolio-tech">
+                        <span class="chip">医疗设备</span>
+                        <span class="chip">IEC 60601</span>
+                        <span class="chip">实时控制</span>
+                        <span class="chip">安全认证</span>
+                    </div>
                 </div>
                 <div class="portfolio-item">
-                    <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="医疗健康平台" class="portfolio-img">
+                    <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="汽车电子控制单元" class="portfolio-img">
                     <div class="portfolio-overlay">
-                        <h3>医疗健康平台</h3>
-                        <p>整合电子病历、远程诊疗和健康管理的医疗健康平台，服务数百万用户。</p>
+                        <h3>汽车电子控制单元</h3>
+                        <p>基于AUTOSAR架构的汽车ECU开发，满足ISO 26262功能安全要求，实现车辆状态监控和控制。</p>
                         <div>
                             <a href="#" class="portfolio-link"><i class="fas fa-link"></i></a>
                             <a href="#" class="portfolio-link"><i class="fas fa-search"></i></a>
                         </div>
                     </div>
+                    <div class="portfolio-tech">
+                        <span class="chip">AUTOSAR</span>
+                        <span class="chip">ISO 26262</span>
+                        <span class="chip">CAN总线</span>
+                        <span class="chip">汽车电子</span>
+                    </div>
                 </div>
                 <div class="portfolio-item">
-                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="数据分析平台" class="portfolio-img">
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="智能家居中枢" class="portfolio-img">
                     <div class="portfolio-overlay">
-                        <h3>数据分析平台</h3>
-                        <p>为企业提供实时数据分析和可视化工具，支持PB级数据处理和复杂分析场景。</p>
+                        <h3>智能家居中枢</h3>
+                        <p>支持Zigbee、蓝牙Mesh和Wi-Fi的多协议智能家居网关，实现设备互联和语音控制集成。</p>
                         <div>
                             <a href="#" class="portfolio-link"><i class="fas fa-link"></i></a>
                             <a href="#" class="portfolio-link"><i class="fas fa-search"></i></a>
                         </div>
                     </div>
+                    <div class="portfolio-tech">
+                        <span class="chip">Zigbee</span>
+                        <span class="chip">蓝牙Mesh</span>
+                        <span class="chip">多协议</span>
+                        <span class="chip">语音控制</span>
+                    </div>
                 </div>
                 <div class="portfolio-item">
-                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="教育科技应用" class="portfolio-img">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="无人机飞控系统" class="portfolio-img">
                     <div class="portfolio-overlay">
-                        <h3>教育科技应用</h3>
-                        <p>基于AI的个性化学习平台，为学生提供自适应学习路径和实时反馈。</p>
+                        <h3>无人机飞控系统</h3>
+                        <p>基于STM32F7的高性能飞控系统，实现精准姿态控制和自主导航，支持多种传感器融合。</p>
                         <div>
                             <a href="#" class="portfolio-link"><i class="fas fa-link"></i></a>
                             <a href="#" class="portfolio-link"><i class="fas fa-search"></i></a>
                         </div>
+                    </div>
+                    <div class="portfolio-tech">
+                        <span class="chip">飞控算法</span>
+                        <span class="chip">传感器融合</span>
+                        <span class="chip">PID控制</span>
+                        <span class="chip">自主导航</span>
                     </div>
                 </div>
             </div>
@@ -912,52 +1188,77 @@
         <div class="container">
             <div class="section-title">
                 <h2>职业经历</h2>
-                <p>我在技术行业的成长历程和关键里程碑</p>
+                <p>我在嵌入式领域的专业成长历程</p>
             </div>
             <div class="timeline-container">
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
                     <div class="timeline-date">2021 - 至今</div>
                     <div class="timeline-content">
-                        <h3>技术副总裁</h3>
-                        <h4>某科技股份有限公司</h4>
-                        <p>负责公司整体技术战略和研发团队管理，领导100+人的技术团队，推动公司核心技术平台升级和产品创新。</p>
+                        <h3>嵌入式系统首席架构师</h3>
+                        <h4>某物联网科技公司</h4>
+                        <p>负责公司核心嵌入式产品线的架构设计和技术路线规划，领导30人嵌入式开发团队，主导多款工业级物联网产品的研发。</p>
+                        <div class="timeline-tech">
+                            <span class="chip">物联网架构</span>
+                            <span class="chip">团队管理</span>
+                            <span class="chip">技术规划</span>
+                        </div>
                     </div>
                 </div>
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
                     <div class="timeline-date">2018 - 2021</div>
                     <div class="timeline-content">
-                        <h3>高级技术总监</h3>
-                        <h4>某互联网科技公司</h4>
-                        <p>领导跨职能技术团队，负责公司核心产品的架构设计和研发管理，成功将系统迁移至云原生架构。</p>
+                        <h3>高级嵌入式工程师</h3>
+                        <h4>某汽车电子供应商</h4>
+                        <p>参与汽车电子控制单元(ECU)开发，负责底层驱动开发和功能安全实现，项目通过ISO 26262 ASIL-B认证。</p>
+                        <div class="timeline-tech">
+                            <span class="chip">AUTOSAR</span>
+                            <span class="chip">ISO 26262</span>
+                            <span class="chip">汽车电子</span>
+                        </div>
                     </div>
                 </div>
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
                     <div class="timeline-date">2015 - 2018</div>
                     <div class="timeline-content">
-                        <h3>技术经理</h3>
-                        <h4>某金融科技公司</h4>
-                        <p>带领团队开发金融风控系统，引入机器学习算法提升风控准确率30%，系统处理能力提升5倍。</p>
+                        <h3>嵌入式软件工程师</h3>
+                        <h4>某医疗设备制造商</h4>
+                        <p>开发符合医疗标准的嵌入式控制系统，优化实时性能和可靠性，产品通过IEC 60601医疗认证。</p>
+                        <div class="timeline-tech">
+                            <span class="chip">医疗设备</span>
+                            <span class="chip">实时系统</span>
+                            <span class="chip">IEC 60601</span>
+                        </div>
                     </div>
                 </div>
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
                     <div class="timeline-date">2012 - 2015</div>
                     <div class="timeline-content">
-                        <h3>高级软件工程师</h3>
-                        <h4>某跨国科技企业</h4>
-                        <p>参与企业级SaaS平台开发，负责核心模块设计和实现，获得公司年度技术创新奖。</p>
+                        <h3>嵌入式开发工程师</h3>
+                        <h4>某消费电子公司</h4>
+                        <p>参与智能家居产品开发，负责低功耗无线通信模块的固件开发和优化，实现μA级待机电流。</p>
+                        <div class="timeline-tech">
+                            <span class="chip">低功耗设计</span>
+                            <span class="chip">无线通信</span>
+                            <span class="chip">Zigbee</span>
+                        </div>
                     </div>
                 </div>
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
                     <div class="timeline-date">2010 - 2012</div>
                     <div class="timeline-content">
-                        <h3>软件工程师</h3>
-                        <h4>某软件服务公司</h4>
-                        <p>参与多个企业级Web应用开发，积累全栈开发经验，快速成长为技术骨干。</p>
+                        <h3>嵌入式系统助理工程师</h3>
+                        <h4>某工业自动化企业</h4>
+                        <p>参与工业控制器开发，学习嵌入式系统基础知识和硬件调试技能，积累底层开发经验。</p>
+                        <div class="timeline-tech">
+                            <span class="chip">工业控制</span>
+                            <span class="chip">PLC</span>
+                            <span class="chip">现场总线</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -968,8 +1269,8 @@
     <section class="contact" id="contact">
         <div class="container">
             <div class="section-title">
-                <h2>联系我</h2>
-                <p>如果您有任何问题或合作意向，欢迎随时联系</p>
+                <h2>联系合作</h2>
+                <p>如果您有嵌入式开发需求或技术咨询，欢迎随时联系</p>
             </div>
             <div class="contact-grid">
                 <div class="contact-info">
@@ -981,7 +1282,7 @@
                             </div>
                             <div class="contact-text">
                                 <h4>地址</h4>
-                                <p>北京市海淀区中关村软件园</p>
+                                <p>深圳市南山区科技园</p>
                             </div>
                         </div>
                         <div class="contact-item">
@@ -990,7 +1291,7 @@
                             </div>
                             <div class="contact-text">
                                 <h4>邮箱</h4>
-                                <p>mingyuan.zhang@example.com</p>
+                                <p>peijun.dai@example.com</p>
                             </div>
                         </div>
                         <div class="contact-item">
@@ -1003,11 +1304,11 @@
                             </div>
                         </div>
                     </div>
-                    <h3>社交媒体</h3>
+                    <h3>技术社区</h3>
                     <div class="social-links">
-                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
                         <a href="#" class="social-link"><i class="fab fa-github"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-stack-overflow"></i></a>
                         <a href="#" class="social-link"><i class="fab fa-weixin"></i></a>
                     </div>
                 </div>
@@ -1023,9 +1324,9 @@
                             <input type="text" class="form-control" placeholder="主题">
                         </div>
                         <div class="form-group">
-                            <textarea class="form-control" placeholder="您的留言" required></textarea>
+                            <textarea class="form-control" placeholder="请描述您的项目需求或技术问题..." required></textarea>
                         </div>
-                        <button type="submit" class="submit-btn">发送留言</button>
+                        <button type="submit" class="submit-btn">发送消息</button>
                     </form>
                 </div>
             </div>
@@ -1036,15 +1337,16 @@
     <footer>
         <div class="container">
             <div class="footer-content">
-                <a href="#" class="footer-logo">张明远</a>
+                <a href="#" class="footer-logo">Peijun Mr Dai<span>.</span></a>
                 <ul class="footer-links">
                     <li><a href="#home">首页</a></li>
                     <li><a href="#about">关于</a></li>
-                    <li><a href="#services">专长</a></li>
+                    <li><a href="#skills">技术栈</a></li>
                     <li><a href="#portfolio">项目</a></li>
+                    <li><a href="#timeline">经历</a></li>
                     <li><a href="#contact">联系</a></li>
                 </ul>
-                <p class="copyright">© 2023 张明远. 保留所有权利.</p>
+                <p class="copyright">© 2023 Peijun Mr Dai - 嵌入式系统专家. 保留所有权利.</p>
             </div>
         </div>
     </footer>
@@ -1080,6 +1382,39 @@
                 });
             });
         });
+
+        // 终端模拟器效果
+        const terminalCommands = [
+            { command: 'cat about_me.txt', output: '嵌入式系统专家 | 10年经验 | 物联网架构师' },
+            { command: 'skills --list', output: 'C/C++ | RTOS | ARM | 低功耗设计 | 物联网协议' },
+            { command: 'contact --email', output: 'peijun.dai@example.com' }
+        ];
+
+        function animateTerminal() {
+            const terminalBody = document.querySelector('.terminal-body');
+            if (!terminalBody) return;
+            
+            let html = '';
+            let delay = 0;
+            
+            terminalCommands.forEach((item, index) => {
+                html += `
+                    <div style="animation-delay: ${delay}s" class="terminal-line">
+                        <span class="terminal-prompt">$ </span>
+                        <span class="terminal-command">${item.command}</span>
+                    </div>
+                    <div style="animation-delay: ${delay + 0.5}s" class="terminal-line terminal-output">
+                        ${item.output}
+                    </div>
+                `;
+                delay += 1.5;
+            });
+            
+            terminalBody.innerHTML = html;
+        }
+
+        // 页面加载后执行
+        window.addEventListener('load', animateTerminal);
     </script>
 </body>
 </html>
