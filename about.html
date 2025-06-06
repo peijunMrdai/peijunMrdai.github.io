@@ -64,7 +64,8 @@
         
         .about-content {
             display: flex;
-            align-items: center;
+            flex-direction: row;
+            align-items: flex-start;
             gap: 50px;
             position: relative;
             z-index: 1;
@@ -72,23 +73,57 @@
         }
         
         .about-img {
-            flex: 1;
-            border-radius: 8px;
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
             overflow: hidden;
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
             border: 8px solid rgba(20, 157, 221, 0.2);
             animation: borderPulse 4s infinite;
+            position: relative;
+            margin: 0;
+            flex-shrink: 0;
+            aspect-ratio: 1;
         }
-        
+
+        .about-img::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('assets/images/profile.jpg');
+            background-size: cover;
+            background-position: center;
+            border-radius: 50%;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .about-img:hover::before {
+            opacity: 1;
+        }
+
         .about-img img {
             width: 100%;
-            height: auto;
+            height: 100%;
+            object-fit: cover;
+            object-position: center center;
             display: block;
-            transition: transform 0.3s ease;
+            position: absolute;
+            top: 0;
+            left: 0;
+            border-radius: 50%;
+            transition: opacity 0.6s ease-in-out;
         }
-        
-        .about-img:hover img {
-            transform: scale(1.05);
+
+        .about-img .primary-img {
+            opacity: 1;
+        }
+
+        .about-img .secondary-img {
+            opacity: 0;
         }
         
         .about-text {
@@ -174,12 +209,23 @@
             }
 
             .about-img {
-                max-width: 400px;
-                margin: 0 auto;
+                width: 400px;
+                height: 400px;
+                margin: 0 auto 30px;
+                flex-shrink: 0;
+                border-radius: 50%;
             }
 
             .skill-item:hover {
                 transform: translateX(0);
+            }
+        }
+
+        @media (max-width: 576px) {
+            .about-img {
+                width: 300px;
+                height: 300px;
+                border-radius: 50%;
             }
         }
     </style>
@@ -211,13 +257,14 @@
                 <p>嵌入式系统与物联网领域的资深专家，致力于构建高效可靠的智能硬件解决方案</p>
             </div>
             <div class="about-content">
-                <div class="about-img">
-                    <img src="assets/images/profile.jpg" alt="Peijun Mr Dai">
-                </div>
+                    <div class="about-img">
+                        <img src="assets/images/profile.jpg" alt="Peijun Mr Dai" class="primary-img">
+                        <img src="assets/images/hero-bg0.jpg" alt="Peijun Mr Dai Background" class="secondary-img">
+                    </div>
                 <div class="about-text">
-                    <h3>嵌入式系统与物联网专家</h3>
-                    <p>我是一名专注于嵌入式系统和物联网解决方案的资深工程师，拥有10年行业经验。我的专长包括实时操作系统(RTOS)开发、低功耗设计、硬件/软件协同优化以及物联网系统架构。</p>
-                    <p>曾主导多个工业级嵌入式项目，从8位MCU到多核ARM处理器，从裸机开发到Linux嵌入式系统，积累了丰富的跨平台开发经验。特别擅长解决复杂系统中的性能瓶颈和稳定性问题。</p>
+                        <h3>嵌入式系统与物联网专家</h3>
+                        <p>我是一名专注于嵌入式系统和物联网解决方案的资深工程师，拥有10年行业经验。我的专长包括实时操作系统(RTOS)开发、低功耗设计、硬件/软件协同优化以及物联网系统架构。</p>
+                        <p>曾主导多个工业级嵌入式项目，从8位MCU到多核ARM处理器，从裸机开发到Linux嵌入式系统，积累了丰富的跨平台开发经验。特别擅长解决复杂系统中的性能瓶颈和稳定性问题。</p>
                     <div class="skills">
                         <div class="skill-item">
                             <div class="skill-info">
@@ -280,5 +327,44 @@
     </footer>
 
     <script src="assets/js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const primaryImg = document.querySelector('.about-img .primary-img');
+            const secondaryImg = document.querySelector('.about-img .secondary-img');
+            let isAnimating = false;
+            let debounceTimer;
+
+            function debounce(func, delay) {
+                clearTimeout(debounceTimer);
+                debounceTimer = setTimeout(func, delay);
+            }
+
+            function toggleImages(showSecondary) {
+                if (isAnimating) return;
+                isAnimating = true;
+
+                if (showSecondary) {
+                    primaryImg.style.opacity = '0';
+                    secondaryImg.style.opacity = '1';
+                } else {
+                    primaryImg.style.opacity = '1';
+                    secondaryImg.style.opacity = '0';
+                }
+
+                setTimeout(() => {
+                    isAnimating = false;
+                }, 600);
+            }
+
+            const container = document.querySelector('.about-img');
+            container.addEventListener('mouseenter', () => {
+                debounce(() => toggleImages(true), 200);
+            });
+
+            container.addEventListener('mouseleave', () => {
+                debounce(() => toggleImages(false), 200);
+            });
+        });
+    </script>
 </body>
 </html>
