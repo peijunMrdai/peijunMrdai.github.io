@@ -9,88 +9,205 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <link rel="stylesheet" href="assets/css/style.css">
     <style>
-        /* 技术栈页面特有样式 */
-        .services {
+        .skills-section {
             padding: 100px 0;
-            background-color: #f5f7fa;
+            background: linear-gradient(rgba(5, 13, 24, 0.9), rgba(5, 13, 24, 0.9)),
+                        url('assets/images/hero-bg.jpg') center/cover no-repeat fixed;
+            color: #fff;
+            min-height: 100vh;
+            position: relative;
         }
-        
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 50%;
+            background: linear-gradient(to top, rgba(20, 157, 221, 0.1), transparent);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .hero-title {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            font-family: 'Roboto Mono', monospace;
+            animation: slideUp 0.8s ease;
+        }
+
+        .hero-description {
+            font-size: 1.25rem;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.9);
+            animation: slideUp 0.8s 0.2s ease both;
+        }
+
+        .services {
+            padding: 80px 0;
+            background-color: #fff;
+            position: relative;
+        }
+
         .section-title {
             text-align: center;
             margin-bottom: 60px;
+            position: relative;
+            z-index: 1;
         }
-        
+
         .section-title h2 {
             font-size: 2.5rem;
-            color: var(--secondary-color);
+            color: #149ddd;
             margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+            font-family: 'Roboto Mono', monospace;
         }
-        
+
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 3px;
+            background-color: #149ddd;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
         .section-title p {
-            color: var(--text-light);
+            color: rgba(255, 255, 255, 0.9);
             max-width: 700px;
             margin: 0 auto;
+            font-size: 1.1rem;
         }
-        
+
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 30px;
-            margin-top: 50px;
+            animation: slideUp 0.8s 0.2s ease both;
         }
-        
+
         .service-card {
-            background-color: white;
+            background-color: #fff;
             border-radius: 8px;
             padding: 40px 30px;
             text-align: center;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
             transition: transform 0.3s, box-shadow 0.3s;
-            border-top: 3px solid var(--primary-color);
+            border: 1px solid rgba(20, 157, 221, 0.1);
+            position: relative;
+            overflow: hidden;
         }
-        
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: #149ddd;
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
         .service-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-            border-top-color: var(--accent-color);
+            box-shadow: 0 15px 30px rgba(20, 157, 221, 0.1);
         }
-        
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
         .service-icon {
             font-size: 3rem;
-            color: var(--primary-color);
+            color: #149ddd;
             margin-bottom: 20px;
+            transition: transform 0.3s ease;
         }
-        
+
+        .service-card:hover .service-icon {
+            transform: scale(1.1);
+        }
+
         .service-card h3 {
             font-size: 1.5rem;
             margin-bottom: 15px;
-            color: var(--secondary-color);
+            color: #333;
+            font-family: 'Roboto Mono', monospace;
         }
-        
+
         .service-card p {
-            color: var(--text-light);
-            font-size: 15px;
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
         }
 
         .chip {
             display: inline-block;
-            background-color: var(--light-color);
-            padding: 4px 12px;
+            background-color: rgba(20, 157, 221, 0.1);
+            padding: 6px 12px;
             border-radius: 20px;
             margin: 5px;
-            font-size: 13px;
-            color: var(--secondary-color);
+            font-size: 0.85rem;
+            color: #149ddd;
             font-family: 'Roboto Mono', monospace;
+            transition: all 0.3s ease;
         }
 
-        .chip.primary {
-            background-color: var(--primary-color);
+        .chip:hover {
+            background-color: #149ddd;
             color: white;
+            transform: translateY(-2px);
         }
 
-        .chip.accent {
-            background-color: var(--accent-color);
-            color: white;
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                min-height: 30vh;
+                padding: 60px 0;
+            }
+
+            .hero-description {
+                font-size: 1.1rem;
+            }
+
+            .services {
+                padding: 60px 0;
+            }
+
+            .section-title h2 {
+                font-size: 2rem;
+            }
+
+            .service-card {
+                padding: 30px 20px;
+            }
         }
     </style>
 </head>
@@ -114,7 +231,7 @@
     </header>
 
     <!-- 技术栈 -->
-    <section class="services">
+    <section class="skills-section">
         <div class="container">
             <div class="section-title">
                 <h2>技术专长</h2>
@@ -127,7 +244,7 @@
                     </div>
                     <h3>嵌入式开发</h3>
                     <p>精通ARM Cortex-M/A系列架构，熟悉STM32/NXP/ESP32等平台，具备从寄存器级开发到HAL库应用的完整经验。</p>
-                    <div style="margin-top: 20px;">
+                    <div class="chip-container">
                         <span class="chip">ARM架构</span>
                         <span class="chip">STM32</span>
                         <span class="chip">ESP32</span>
@@ -140,7 +257,7 @@
                     </div>
                     <h3>实时系统</h3>
                     <p>深入理解FreeRTOS、Zephyr等实时操作系统内核原理，能够进行任务调度优化和内存管理调优。</p>
-                    <div style="margin-top: 20px;">
+                    <div class="chip-container">
                         <span class="chip">FreeRTOS</span>
                         <span class="chip">Zephyr</span>
                         <span class="chip">RTOS优化</span>
@@ -153,7 +270,7 @@
                     </div>
                     <h3>物联网架构</h3>
                     <p>设计并实现端到端IoT解决方案，包括设备端固件、网关设计、云平台集成和数据安全。</p>
-                    <div style="margin-top: 20px;">
+                    <div class="chip-container">
                         <span class="chip">MQTT</span>
                         <span class="chip">CoAP</span>
                         <span class="chip">LoRaWAN</span>
@@ -166,7 +283,7 @@
                     </div>
                     <h3>低功耗设计</h3>
                     <p>擅长超低功耗嵌入式系统设计，优化电源管理，延长电池寿命，最低可实现μA级待机电流。</p>
-                    <div style="margin-top: 20px;">
+                    <div class="chip-container">
                         <span class="chip">电源管理</span>
                         <span class="chip">睡眠模式</span>
                         <span class="chip">能耗分析</span>
@@ -179,7 +296,7 @@
                     </div>
                     <h3>驱动开发</h3>
                     <p>开发各类外设驱动，包括传感器、无线模块、显示屏等，精通SPI/I2C/UART等通信协议。</p>
-                    <div style="margin-top: 20px;">
+                    <div class="chip-container">
                         <span class="chip">设备驱动</span>
                         <span class="chip">总线协议</span>
                         <span class="chip">DMA优化</span>
@@ -192,7 +309,7 @@
                     </div>
                     <h3>系统安全</h3>
                     <p>实现嵌入式系统安全方案，包括安全启动、固件加密、安全OTA更新和数据保护。</p>
-                    <div style="margin-top: 20px;">
+                    <div class="chip-container">
                         <span class="chip">安全启动</span>
                         <span class="chip">加密算法</span>
                         <span class="chip">TrustZone</span>
@@ -207,15 +324,6 @@
     <footer>
         <div class="container">
             <div class="footer-content">
-                <a href="index.html" class="footer-logo">Peijun Mr Dai<span>.</span></a>
-                <ul class="footer-links">
-                    <li><a href="index.html">首页</a></li>
-                    <li><a href="about.html">关于我</a></li>
-                    <li><a href="skills.html">技术栈</a></li>
-                    <li><a href="portfolio.html">项目</a></li>
-                    <li><a href="experience.html">经历</a></li>
-                    <li><a href="contact.html">联系</a></li>
-                </ul>
                 <p class="copyright">© 2023 Peijun Mr Dai - 嵌入式系统专家. 保留所有权利.</p>
             </div>
         </div>
