@@ -8,15 +8,36 @@ window.addEventListener('scroll', function() {
     }
 });
 
-// 移动端菜单切换
-const menuToggle = document.querySelector('.menu-toggle');
-const navLinks = document.querySelector('.nav-links');
+// Mobile Navigation
+document.querySelector('.mobile-nav-toggle').addEventListener('click', function(e) {
+    const navbar = document.querySelector('#navbar ul');
+    const toggle = document.querySelector('.mobile-nav-toggle');
+    
+    if (navbar.style.display === 'flex') {
+        navbar.style.display = 'none';
+        navbar.style.right = '-100%';
+        toggle.classList.remove('bi-x');
+        toggle.classList.add('bi-list');
+    } else {
+        navbar.style.display = 'flex';
+        navbar.style.right = '20px';
+        toggle.classList.remove('bi-list');
+        toggle.classList.add('bi-x');
+    }
+});
 
-if (menuToggle && navLinks) {
-    menuToggle.addEventListener('click', function() {
-        navLinks.classList.toggle('active');
-    });
-}
+// Close mobile nav when clicking outside
+document.addEventListener('click', function(e) {
+    const navbar = document.querySelector('#navbar ul');
+    const toggle = document.querySelector('.mobile-nav-toggle');
+    
+    if (!navbar.contains(e.target) && !toggle.contains(e.target) && navbar.style.display === 'flex') {
+        navbar.style.display = 'none';
+        navbar.style.right = '-100%';
+        toggle.classList.remove('bi-x');
+        toggle.classList.add('bi-list');
+    }
+});
 
 // 平滑滚动
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
